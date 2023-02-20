@@ -31,6 +31,28 @@
             document.getElementById("resultatEx4").innerHTML = ("L'aire du rectangle est de " + aire + " et son périmètre est de " + perimetre);
         }
 
+        function exercice5(){
+            var annee = document.getElementById("anneeEx5").value;
+            var mois = document.getElementById("moisEx5").value;
+            var nbJours = 0;
+
+            if (mois == 'Janvier' || mois == 'Mars' || mois == 'Mai' || mois == 'Juillet' || mois == 'Aout' || mois == 'Octobre' || mois == 'Decembre'){
+                nbJours = 31;
+            }
+            else if(mois == 'Fevrier'){ // Si le mois est février + vérification année bissextile
+                if (annee % 4 == 0 && annee % 100 != 0 || annee % 400 == 0){
+                    nbJours = 29;
+                }
+                else{
+                    nbJours = 28;
+                }
+            }
+            else{
+                nbJours = 30;
+            }
+                
+            document.getElementById("resultatEx5").innerHTML = ("Le mois de " + mois + " de l'année " + annee + " contient " + nbJours + " jours.");
+        }
     </script>
 
 
@@ -77,6 +99,11 @@
         <div id="resultatEx5"></div>
     </div>
 
+    <hr>
+
+    <div>
+        <h2>Exercice 6</h2>
+    </div>
 
 </body>
 </html>
