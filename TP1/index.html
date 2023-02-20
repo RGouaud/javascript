@@ -53,6 +53,18 @@
                 
             document.getElementById("resultatEx5").innerHTML = ("Le mois de " + mois + " de l'année " + annee + " contient " + nbJours + " jours.");
         }
+
+        function exercice6(){
+            var nombre = document.getElementById("NombreEx6").value;
+            if nombre.isInteger() == false{
+                alert("Veuillez entrer un nombre entier");
+            }
+            else{
+                for (var i = 1; i <= 10; i++){
+                    document.getElementById("resultatEx6").innerHTML += "<p>" + nombre + " x " + i + " = " + (nombre * i) + "</p>";
+                }
+            }
+        }
     </script>
 
 
@@ -103,6 +115,13 @@
 
     <div>
         <h2>Exercice 6</h2>
+
+        <form>
+            <label for="Nombre">Nombre</label>
+            <input type="number" name="Nombre" id="NombreEx6">
+            <input type="button" value="Calculer" onclick="exercice6()">
+        </form>
+        <div id="resultatEx6"></div>
     </div>
 
 </body>
