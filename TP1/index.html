@@ -55,8 +55,8 @@
         }
 
         function exercice6(){
-            var nombre = document.getElementById("NombreEx6").value;
-            if (nombre.isInteger() == false){
+            var nombre = parseInt(document.getElementById("NombreEx6").value);
+            if (Number.isInteger(nombre) == false){
                 alert("Veuillez entrer un nombre entier");
             }
             else{
@@ -64,7 +64,10 @@
                     document.getElementById("resultatEx6").innerHTML += "<p>" + nombre + " x " + i + " = " + (nombre * i) + "</p>";
                 }
             }
+            // for (var i = 1; i <= 10; i++){
+            //         document.getElementById("resultatEx6").innerHTML += "<p>" + nombre + " x " + i + " = " + (nombre * i) + "</p>";
         }
+    
     </script>
 
 
