@@ -23,18 +23,60 @@
             document.getElementById("resultat").innerHTML = ("L'aire du rectangle est de " + aire + " et son périmètre est de " + perimetre);
         }
 
+        function exercice4(){
+            var largeur = document.getElementById("largeurEx4").value;
+            var longueur = document.getElementById("longueurEx4").value;
+            var aire = largeur * longueur;
+            var perimetre = (largeur * 2) + (longueur * 2);
+            document.getElementById("resultatEx4").innerHTML = ("L'aire du rectangle est de " + aire + " et son périmètre est de " + perimetre);
+        }
+
     </script>
 
 
 </head>
 <body>
-    <button onclick="exercice1()">Exercice 1</button>
+    <div>
+        <h2>Exercice 1</h2>
+        <button onclick="exercice1()">Exercice 1</button>
+    </div>
+
+    <hr>
 
     <div>
-        <p>Exercice 3</p>
+        <h2>Exercice 3</h2>
         <button onclick="exercice3()">Exercice 3</button>
         <div id="resultat"></div>
     </div>
+
+    <hr>
+
+    <div>
+        <h2>Exercice 4</h2>
+        <form>
+            <label for="largeur">Largeur</label>
+            <input type="text" name="largeur" id="largeurEx4">
+            <label for="longueur">Longueur</label>
+            <input type="text" name="longueur" id="longueurEx4">
+            <input type="button" value="Calculer" onclick="exercice4()">
+        </form>
+        <div id="resultatEx4"></div>
+    </div>
+
+    <hr>
+
+    <div>
+        <h2>Exercice 5</h2>
+        <form>
+            <label for="annee">Année</label>
+            <input type="text" name="annee" id="anneeEx5">
+            <label for="mois">Mois</label>
+            <input type="text" name="mois" id="moisEx5">
+            <input type="button" value="Calculer le nombre de jour dans le mois" onclick="exercice5()">
+        </form>
+        <div id="resultatEx5"></div>
+    </div>
+
 
 </body>
 </html>
