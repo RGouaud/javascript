@@ -15,11 +15,26 @@
             alert("L'aire du rectangle est de " + aire + " et son périmètre est de " + perimetre);
         }
 
+        function exercice3(){
+            var largeur = prompt("Entrez la largeur du rectangle : ");
+            var longueur = prompt("Entrez la longueur du rectangle : ");
+            var aire = largeur * longueur;
+            var perimetre = (largeur * 2) + (longueur * 2);
+            document.getElementById("resultat").innerHTML = ("L'aire du rectangle est de " + aire + " et son périmètre est de " + perimetre);
+        }
+
     </script>
 
 
 </head>
 <body>
     <button onclick="exercice1()">Exercice 1</button>
+
+    <div>
+        <p>Exercice 3</p>
+        <button onclick="exercice3()">Exercice 3</button>
+        <div id="resultat"></div>
+    </div>
+
 </body>
 </html>
