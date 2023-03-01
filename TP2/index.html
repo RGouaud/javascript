@@ -41,6 +41,7 @@
                 }
                 document.getElementById("resultatEx2").innerHTML = "la valeur de somRec est : " + somRec(i); // on affiche le résultat de la fonction récursive
             }
+        }
 
         function exercice2_2(){ //SomFor
             var saisie = parseInt(prompt("Entrez un nombre entier positif : ")); // prompt : affiche une boite de dialogue avec une entrée
@@ -59,11 +60,18 @@
             }
         }
 
+        //EXERCICE 3
+        function exercice3(){
+            var navigateur = navigator.userAgent;
+            var titre = document.title;
+            var derniereModif = document.lastModified;
+
+            document.getElementById("resultatEx3").innerHTML = "Votre navigateur est : " + navigateur + "<br>Le titre de la page est : " + titre + "<br>La dernière modification de la page est : " + derniereModif;
+        }
     </script>
 
-
 </head>
-<body>
+<body onload="exercice3()">
     <h1>TP2</h1>
     <h2>Exercice 1</h2>
     <button onclick="exercice1_1()">Afficher jours semaine avec join</button>
@@ -75,6 +83,8 @@
     <button onclick="exercice2_2()">Calculer somme avec for</button>
     <p id="resultatEx2"></p>
     <hr>
+    <h2>Exercice 3</h2>
+    <p id="resultatEx3"></p>
 
 
 </body>
