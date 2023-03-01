@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choix couleur de fond</title>
+
+    <script>
+        function selectionnerCouleur(){
+            var couleur = document.getElementById("couleur").value;
+            document.body.style.backgroundColor = couleur;
+        }
+    </script>
+
+
+</head>
+<body onload="selectionnerCouleur()">
+    
+    <!-- liste déroulante -->
+    <h2>Choix de la couleur de fond</h2>
+    <select name="couleur" id="couleur" onchange="selectionnerCouleur()">
+        <option value="#C0C0C0">Gris</option>
+        <option value="#669999">Bleu</option>
+        <option value="#99FF66">Vert</option>
+    </select>
+
+</body>
+</html>

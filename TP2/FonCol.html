@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couleur de fond</title>
+
+    <script>
+        function selectionnerCouleur(){
+            
+            var couleur = prompt("Selectionnez une couleur de fond (Parmis gris, bleu ou vert)");
+            couleur = couleur.toLowerCase().trim() 
+            if(couleur == null){
+                alert("Vous n'avez pas sélectionné de couleur");
+            }
+            else if(!(couleur == "bleu" || couleur == "gris" || couleur == "vert")){
+                alert("Couleur non reconnue");
+                console.log(couleur);
+                selectionnerCouleur();
+            }
+            console.log(couleur);
+            alert("Vous avez sélectionné la couleur " + couleur);
+            return couleur;            
+        }
+    </script>
+
+</head>
+<body onload="selectionnerCouleur()">
+    
+</body>
+</html>
