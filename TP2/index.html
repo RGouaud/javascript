@@ -23,6 +23,42 @@
             document.getElementById("resultat").innerHTML = "Affichage grâce à une boucle for : <br>" + resultat;
         }
 
+        //EXERCICE 2
+
+        function exercice2_1(){ // SomRec
+            var i = parseInt(prompt("Entrez un nombre entier positif : ")); // prompt : affiche une boite de dialogue avec une entrée 
+            if (Number.isInteger(i) == false || i < 0){ // Number.isInteger : vérifie si la variable est un entier || i < 0 : vérifie si la variable est positive
+                document.getElementById("resultatEx2").innerHTML = "Somme indéfinie"; // on affiche pour l'utilisateur que la somme est indéfinie
+            }
+            else{ // si la variable est un entier et positive
+                function somRec(i){ // fonction récursive
+                    if (i == 0){ // si i = 0, on retourne 0
+                        return 0;
+                    }
+                    else{ // sinon on retourne i + la fonction récursive avec i - 1 (on décrémente i, puis on rappelle la fonction)
+                        return i + somRec(i-1); 
+                    }
+                }
+                document.getElementById("resultatEx2").innerHTML = "la valeur de somRec est : " + somRec(i); // on affiche le résultat de la fonction récursive
+            }
+
+        function exercice2_2(){ //SomFor
+            var saisie = parseInt(prompt("Entrez un nombre entier positif : ")); // prompt : affiche une boite de dialogue avec une entrée
+            if(Number.isInteger(saisie) == false || saisie < 0){ // Number.isInteger : vérifie si la variable est un entier || saisie < 0 : vérifie si la variable est positive
+                document.getElementById("resultatEx2").innerHTML = "Somme indéfinie"; // on affiche pour l'utilisateur que la somme est indéfinie
+            }
+            else{ // si la variable est un entier et positive
+                function somFor(saisie){ // fonction utilisant une boucle for
+                    var resultat = 0; // on initialise la variable resultat à 0
+                    for(i = 0; i < saisie +1; i++){ // A chaque tour de boucle, on incrément résultat avec i, et on incrémente i de 1
+                        resultat += i; 
+                    } 
+                    return resultat; // on retourne le résultat à la fin de la boucle
+                }
+                document.getElementById("resultatEx2").innerHTML = "la valeur de somFor est : " + somFor(saisie); // on affiche le résultat de la fonction
+            }
+        }
+
     </script>
 
 
@@ -34,5 +70,12 @@
     <button onclick="exercice1_2()">Afficher jours semaine avec for</button>
     <p id="resultat"></p>
     <hr>
+    <h2>Exercice 2</h2>
+    <button onclick="exercice2_1()">Calculer somme avec récursivité</button>
+    <button onclick="exercice2_2()">Calculer somme avec for</button>
+    <p id="resultatEx2"></p>
+    <hr>
+
+
 </body>
 </html>
