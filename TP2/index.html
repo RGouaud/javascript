@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP2</title>
+
+    <script>
+
+        function exercice1_1(){
+            var semaine = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+            semaine.join();
+            document.getElementById("resultat").innerHTML = "Affichage grâce à la méthode join : <br>" + semaine;
+        }
+
+        function exercice1_2(){
+            var semaine = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+            var resultat = "";
+            for (var i = 0; i < semaine.length; i++){
+                resultat += "jour " + i + " : " + semaine[i] + "<br>";
+            }
+            document.getElementById("resultat").innerHTML = "Affichage grâce à une boucle for : <br>" + resultat;
+        }
+
+    </script>
+
+
+</head>
+<body>
+    <h1>TP2</h1>
+    <h2>Exercice 1</h2>
+    <button onclick="exercice1_1()">Afficher jours semaine avec join</button>
+    <button onclick="exercice1_2()">Afficher jours semaine avec for</button>
+    <p id="resultat"></p>
+    <hr>
+</body>
+</html>
