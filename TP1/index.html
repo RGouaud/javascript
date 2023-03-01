@@ -67,6 +67,12 @@
             // for (var i = 1; i <= 10; i++){
             //         document.getElementById("resultatEx6").innerHTML += "<p>" + nombre + " x " + i + " = " + (nombre * i) + "</p>";
         }
+
+        function exercice7(){
+            var calcul = document.getElementById("saisieEx7").value;
+            var resultat = eval(calcul);
+            document.getElementById("resultatEx7").value = resultat;
+        }
     
     </script>
 
@@ -127,6 +133,16 @@
         <div id="resultatEx6"></div>
     </div>
 
+    <hr>
 
+    <div>
+        <h2>Exercice 7</h2>
+        <form>
+            <label for="saisie">Saisie calcul</label>
+            <input type="text" name="saisie" id="saisieEx7">
+            <input type="button" value="=" onclick="exercice7()">
+            <label for="resultatEx7">Resultat</label>
+            <input type="text" name="resultatEx7" id="resultatEx7" disabled="true">
+        </form>
 </body>
 </html>
