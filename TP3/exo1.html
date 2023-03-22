@@ -6,8 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="exo1.css">
     <title>Document</title>
+
+    <script>
+        function captchas(){
+            let nombreAttendu = Math.floor(Math.random()*9999);
+            let nbTentative = 0;
+            console.log(nombreAttendu);
+            document.getElementById("captcha").innerHTML = nombreAttendu;
+        }
+    
+        nbTentative = 0;   
+        function verifCaptcha(){
+            let nombreAttendu = document.getElementById("captcha").innerHTML;
+            let nombreSaisie = document.getElementById("numberId").value;
+            if(nombreSaisie == nombreAttendu){
+                alert("Captcha correct");
+            }
+            else{
+                if (nombreAttendu > nombreSaisie){
+                    alert("Captcha incorrect, le nombre est plus grand");
+                }
+                else{
+                    alert("Captcha incorrect, le nombre est plus petit");
+                }
+                nbTentative++;
+            }
+    
+            if(nbTentative == 5){
+                //redirection
+                window.location.replace("https://www.iutbayonne.univ-pau.fr/");
+            }
+            console.log("tentative : "+nbTentative);
+        }
+    
+        function verifUtilisationChrome(){
+            let userAgent = navigator.userAgent;
+            if(userAgent.search("Chrome") == -1){
+                alert("Vous n'utilisez pas Chrome");
+            }
+        }
+
+        function verifLangueFrancais(){
+            let langue = navigator.language;
+            if(langue.search("fr") == -1){
+                alert("Vous n'utilisez pas le français");
+            }
+        }
+    </script>
+
+
 </head>
-<body onload="captcha()">
+<body onload="captchas(), verifUtilisationChrome(), verifLangueFrancais()">
     <noscript>
         <h1>Javascript is not supported on your browser !</h1>
     </noscript>
@@ -35,38 +84,5 @@
 
 
 </body>
-
-<script>
-    function captcha(){
-        let nombreAttendu = Math.floor(Math.random()*9999);
-        let nbTentative = 0;
-        console.log(nombreAttendu);
-        document.getElementById("captcha").innerHTML = nombreAttendu;
-    }
-
-    nbTentative = 0;   
-    function verifCaptcha(){
-        let nombreAttendu = document.getElementById("captcha").innerHTML;
-        let nombreSaisie = document.getElementById("numberId").value;
-        if(nombreSaisie == nombreAttendu){
-            alert("Captcha correct");
-        }
-        else{
-            if (nombreAttendu > nombreSaisie){
-                alert("Captcha incorrect, le nombre est plus grand");
-            }
-            else{
-                alert("Captcha incorrect, le nombre est plus petit");
-            }
-            nbTentative++;
-        }
-
-        if(nbTentative == 5){
-            //redirection
-            window.location.replace("https://www.iutbayonne.univ-pau.fr/");
-        }
-        console.log("tentative : "+nbTentative);
-    }
-</script>
 
 </html>
