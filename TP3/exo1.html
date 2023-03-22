@@ -7,18 +7,20 @@
     <link rel="stylesheet" href="exo1.css">
     <title>Document</title>
 </head>
-<body>
+<body onload="captcha()">
     <noscript>
         <h1>Javascript is not supported on your browser !</h1>
     </noscript>
-    <form>
+
+
+    <form onsubmit="return false">
         <h2>Contact US</h2>
         <label for="nameId">Name (required)</label>
-        <input type="text" name="name" id="nameId" required="true">
+        <input type="text" name="name" id="nameId" >
         <label for="emailId">Email (required)</label>
-        <input type="email" name="email" id="emailId" required="true">
+        <input type="email" name="email" id="emailId" >
         <label for="SubjectId">Subject (required)</label>
-        <input type="text" name="subject" id="subjectId" required="true">
+        <input type="text" name="subject" id="subjectId" >
         <select id="subjectId">
             <option value="other">Other</option>
         </select>
@@ -26,11 +28,45 @@
         <textarea name="message" id="messageId" cols="30" rows="10"></textarea>
 
         <label for="numberId" id="captcha"></label>
-        <input type="number" name="number" id="numberId" min="0" max="9999" step="1" required>
+        <input type="number" name="number" id="numberId" min="0" max="9999" step="1" required="true">
 
-        <input type="button">Send</button>
+        <input type="submit" value="Send" onclick="verifCaptcha()">
     </form>
 
 
 </body>
+
+<script>
+    function captcha(){
+        let nombreAttendu = Math.floor(Math.random()*9999);
+        let nbTentative = 0;
+        console.log(nombreAttendu);
+        document.getElementById("captcha").innerHTML = nombreAttendu;
+    }
+
+    nbTentative = 0;   
+    function verifCaptcha(){
+        let nombreAttendu = document.getElementById("captcha").innerHTML;
+        let nombreSaisie = document.getElementById("numberId").value;
+        if(nombreSaisie == nombreAttendu){
+            alert("Captcha correct");
+        }
+        else{
+            if (nombreAttendu > nombreSaisie){
+                alert("Captcha incorrect, le nombre est plus grand");
+            }
+            else{
+                alert("Captcha incorrect, le nombre est plus petit");
+            }
+            nbTentative++;
+        }
+
+        if(nbTentative == 5){
+            //redirection
+            window.location.replace("https://www.iutbayonne.univ-pau.fr/");
+        }
+        console.log("tentative : "+nbTentative);
+    }
+</script>
+
 </html>
