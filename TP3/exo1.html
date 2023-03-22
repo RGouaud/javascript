@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="exo1.css">
     <title>Document</title>
 </head>
 <body>
-    
+    <noscript>
+        <h1>Javascript is not supported on your browser !</h1>
+    </noscript>
+    <form>
+        <h2>Contact US</h2>
+        <label for="nameId">Name (required)</label>
+        <input type="text" name="name" id="nameId" required="true">
+        <label for="emailId">Email (required)</label>
+        <input type="email" name="email" id="emailId" required="true">
+        <label for="SubjectId">Subject (required)</label>
+        <input type="text" name="subject" id="subjectId" required="true">
+        <select id="subjectId">
+            <option value="other">Other</option>
+        </select>
+        <label for="messageId">Your Message</label>
+        <textarea name="message" id="messageId" cols="30" rows="10"></textarea>
+
+        <label for="numberId" id="captcha"></label>
+        <input type="number" name="number" id="numberId" min="0" max="9999" step="1" required>
+
+        <input type="button">Send</button>
+    </form>
+
+
 </body>
 </html>
