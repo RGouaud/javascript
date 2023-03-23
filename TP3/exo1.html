@@ -23,12 +23,10 @@
                 alert("Captcha correct");
             }
             else{
-                if (nombreAttendu > nombreSaisie){
-                    alert("Captcha incorrect, le nombre est plus grand");
-                }
-                else{
-                    alert("Captcha incorrect, le nombre est plus petit");
-                }
+                captchas();
+                var number = document.getElementById("numberId");
+                number.focus;
+                number.value = "";                
                 nbTentative++;
             }
     
