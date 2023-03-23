@@ -20,7 +20,7 @@
             let nombreAttendu = document.getElementById("captcha").innerHTML;
             let nombreSaisie = document.getElementById("numberId").value;
             if(nombreSaisie == nombreAttendu){
-                alert("Captcha correct");
+                return true;
             }
             else{
                 captchas();
@@ -28,6 +28,7 @@
                 number.focus;
                 number.value = "";                
                 nbTentative++;
+                return false;
             }
     
             if(nbTentative == 5){
@@ -55,16 +56,21 @@
             var name = document.getElementById("nameId");
             var email = document.getElementById("emailId");
             var subject = document.getElementById("subjectId");
+            var retour = true;
 
             if(name.value == ""){
                 name.style.border = "2px solid red";
+                retour = false;
             }
             if(email.value == ""){
                 email.style.border = "2px solid red";
+                retour = false;
             }
             if(subject.value == ""){
                 subject.style.border = "2px solid red";
+                retour = false;
             }
+            return retour;
         }
 
         function verifMail(){
@@ -73,9 +79,11 @@
             if(!regex.test(email.value) || email.value == ""){
                 email.style.border = "2px solid red";
                 alert("Email incorrect");
+                return false;
             }
             else if (email.value != ""){
                 email.style.border = "1px solid black";
+                return true;
             }
         }
 
@@ -89,6 +97,12 @@
                 option.text = newCat;
                 option.value = newCat;
                 select.appendChild(option);
+            }
+        }
+
+        function verifForm(verifCaptcha, verifRemplissageForm, verifMail){
+            if (verifCaptcha && verifRemplissageForm && verifMail){
+                window.location.replace("confirmation.html");
             }
         }
 
@@ -127,7 +141,7 @@
         <label for="numberId" id="captcha"></label>
         <input type="number" name="number" id="numberId" min="0" max="9999" step="1" required="true">
 
-        <input type="submit" value="Send" onclick="verifCaptcha(), verifRemplissageForm(), verifMail()">
+        <input type="submit" value="Send" onclick="verifForm(verifCaptcha(), verifRemplissageForm(), verifMail())">
     </form>
 
 
