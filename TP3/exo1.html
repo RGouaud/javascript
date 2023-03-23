@@ -52,6 +52,48 @@
                 alert("Vous n'utilisez pas le français");
             }
         }
+
+        function verifRemplissageForm(){
+            var name = document.getElementById("nameId");
+            var email = document.getElementById("emailId");
+            var subject = document.getElementById("subjectId");
+
+            if(name.value == ""){
+                name.style.border = "2px solid red";
+            }
+            if(email.value == ""){
+                email.style.border = "2px solid red";
+            }
+            if(subject.value == ""){
+                subject.style.border = "2px solid red";
+            }
+        }
+
+        function verifMail(){
+            var email = document.getElementById("emailId");
+            var regex = new RegExp("^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$");
+            if(!regex.test(email.value) || email.value == ""){
+                email.style.border = "2px solid red";
+                alert("Email incorrect");
+            }
+            else if (email.value != ""){
+                email.style.border = "1px solid black";
+            }
+        }
+
+        function ajoutCat(){
+            console.log("ajoutCat");
+            newCat = document.getElementById("newCatId").value;
+            console.log(/^[^0-9]+/.test(newCat))
+            if(newCat != "" && /^[^0-9]+/.test(newCat)){
+                var select = document.getElementById("categorieId");
+                var option = document.createElement("option");
+                option.text = newCat;
+                option.value = newCat;
+                select.appendChild(option);
+            }
+        }
+
     </script>
 
 
@@ -67,19 +109,26 @@
         <label for="nameId">Name (required)</label>
         <input type="text" name="name" id="nameId" >
         <label for="emailId">Email (required)</label>
-        <input type="email" name="email" id="emailId" >
+        <input type="text" name="email" id="emailId" >
         <label for="SubjectId">Subject (required)</label>
         <input type="text" name="subject" id="subjectId" >
-        <select id="subjectId">
-            <option value="other">Other</option>
-        </select>
+
+        <label>Category
+
+            <input type="text" placeholder="new category" id="newCatId">
+            <input type="button" value="+" onclick="ajoutCat()">
+            <select id="categorieId">
+                <option value="other">Other</option>
+            </select>
+        </label>
+
         <label for="messageId">Your Message</label>
         <textarea name="message" id="messageId" cols="30" rows="10"></textarea>
 
         <label for="numberId" id="captcha"></label>
         <input type="number" name="number" id="numberId" min="0" max="9999" step="1" required="true">
 
-        <input type="submit" value="Send" onclick="verifCaptcha()">
+        <input type="submit" value="Send" onclick="verifCaptcha(), verifRemplissageForm(), verifMail()">
     </form>
 
 
