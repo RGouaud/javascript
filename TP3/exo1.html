@@ -100,10 +100,13 @@
             }
         }
 
-        function verifForm(verifCaptcha, verifRemplissageForm, verifMail){
-            if (verifCaptcha && verifRemplissageForm && verifMail){
-                window.location.replace("confirmation.html");
+        function verifForm(){
+            if (verifCaptcha() && verifRemplissageForm() && verifMail()){
+                console.log("verifForm success");
+                window.open("confirmation.html");
+                return true;
             }
+            return false;
         }
 
         
@@ -117,7 +120,7 @@
     </noscript>
 
 
-    <form onsubmit="return false">
+    <form onsubmit="return verifForm()" action="mailto:test@mail.com" method="post">
         <h2>Contact US</h2>
         <label for="nameId">Name (required)</label>
         <input type="text" name="name" id="nameId" >
@@ -141,7 +144,7 @@
         <label for="numberId" id="captcha"></label>
         <input type="number" name="number" id="numberId" min="0" max="9999" step="1" required="true">
 
-        <input type="submit" value="Send" onclick="verifForm(verifCaptcha(), verifRemplissageForm(), verifMail())">
+        <input type="submit" value="Send" onclick="verifForm()">
     </form>
 
 

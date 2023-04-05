@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // let v = ["toto", "titi", 4, 5, "toto", "toto"];
+        //let v = [];
+        let v = [
+                "chat",
+                "chien",
+                "oiseau",
+                "poisson",
+                "chat",
+                "souris",
+                "lapin",
+                "chien",
+                "poisson",
+                "serpent",
+                "chat",
+                "hamster",
+                "oiseau",
+                "chien",
+                "poisson",
+                "chat",
+                "cheval",
+                "souris",
+                "chien",
+                "poisson",
+                ];
+
+
+        function zip(v2=[]){
+            console.log('ITERRATION');
+            if(v2.includes(v[0]) == false){
+                console.log('if');
+                v2.push(v[0]);
+                v.splice(0,1);
+                console.log(v2);
+                console.log(v);
+            }
+            else{
+                v.splice(0,1);
+                console.log('else');
+                console.log(v2);
+                console.log(v);
+            }    
+        
+            if(v.length != 0){
+                return zip(v2);
+            }
+            else{
+                return v2;
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick="zip()">Exercice 3</button>
+</body>
+</html>

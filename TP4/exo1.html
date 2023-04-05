@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let liste = [ 
+            ["XML","monsite1.fr","monsite1.com"], 
+            ["HTML","monsite2.fr","monsite2.com"],
+            ["CSS","monsite3.fr","monsite3.com"],
+            ["PHP","monsite4.fr","monsite4.com"],
+            ["JS","monsite5.fr","monsite5.com"]
+        ];
+
+        function valider(){
+            console.log("valider");
+            let mot = document.getElementById("mot").value;
+            let resultat = document.getElementById("resultat");
+            resultat.innerHTML = ""; // On vide le div
+            liste.forEach( elt => {
+                if(mot == elt[0]){ // Si le mot est égal au premier élément du tableau
+                    for(let i = 1; i < elt.length; i++) // On parcours le tableau à partir de l'indice 1
+                    resultat.innerHTML += "<p onclick = window.open('http://"+elt[i]+"')>" + elt[i] + "<p>"; // On affiche le lien
+                }
+            });
+        }
+
+        function nouvelleFenetre(lien){
+            window.open(this);
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return false">
+        <input type="text" id="mot" placeholder="Mot">
+        <input type="button" value="Valider" onclick="valider()">
+    </form>
+    <div id="resultat"></div>
+</body>
+</html>

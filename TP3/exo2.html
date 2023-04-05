@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // url : contient des url (fictifs) 
+        // L'utilisateur à travers un formulaire, pourra filtrer les urls qu'il ne souhaite pas afficher (ex : les urls finissant par ".fr", contenant ".192" etc...)
+
+        let url = ["158.168.1.192.fr", "187.168.12.181.com", "10.5.1.1.org",  "192.168.1.5.com", "161.12.15.8.com", "156.12.1.4.fr", "156.12.159.18.es", "156.12.18.4.ru", "149.185.1.8.en", "156.154.152.8.fr"];
+
+        function filtrer(){
+            document.getElementById("ip").innerHTML= "";
+            finirPar = document.getElementById("finiPar").value.split(' '); // finirPar : array contenant les éléments à filtrer <-- grace à la méthode split() qui permet de séparer une chaine de caractère en un tableau de chaine de caractère
+            if(finirPar == ""){// Si le champs est vide
+                finirPar = [" "]; // on met un caractere pour eviter les erreurs
+            }
+
+            url.forEach(elt => 
+                {
+                    let isAffiche = true;
+                    finirPar.forEach(flt => 
+                    {
+                        if(elt.endsWith(flt)){
+                            isAffiche = false;
+                        }
+                    });
+                    if(isAffiche == true){
+                        document.getElementById("ip").innerHTML+= elt + "<br>";
+                    }
+                });           
+            
+        }
+        
+    </script>
+
+</head>
+<body>
+    <form onsubmit="return false">
+        <h2>Element séparés par des espaces</h2>
+        <input type="text" id="finiPar" placeholder="ne fini pas par">
+        <input type="button" value="Filtrer" onclick="filtrer()">
+    </form>
+
+    <div id="ip"></div>
+</body>
+</html>

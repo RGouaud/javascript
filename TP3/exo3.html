@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        let imgName = ["Capture.PNG", "oldVersion1.PNG", "oldVersion2.PNG"];
+        let currentImg = 0;
+
+        function timing(seconds){
+            setInterval(changementImage, seconds*1000);
+        }
+        
+
+        function changementImage(){
+                let image = document.getElementById("imageId");
+                currentImg = (currentImg + 1) % imgName.length;
+                image.src = "img/"+imgName[currentImg];
+        }
+
+        function defile(){
+            console.log("defile");
+            changementImage();
+            timing(3);
+        }
+
+    </script>
+
+</head>
+<body onload="defile()">
+    
+    <img src="" alt="image1" id="imageId" onclick="changementImage()">
+
+</body>
+</html>

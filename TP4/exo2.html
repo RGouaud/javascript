@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <h1>Ma première découverte</h1> <!-- Un titre -->
+        <div id="map" style="width:400px;height:400px;background:yellow"></div> <!-- On défini une div et on lui applique du style. Son id est "map" -->
+        <script>
+            function maCarte(long=51.5, lat=-0.12, zoom=10) {
+                var mesOptions = { // On défini les options de la carte
+                    center: new google.maps.LatLng(long, lat), // On centre la carte sur la latitude 51.5 et la longitude -0.12
+                    zoom: 10, // On défini le zoom
+                    mapTypeId: google.maps.MapTypeId.HYBRID // On défini le type de carte
+                }
+                var carte = new google.maps.Map(document.getElementById("map"), mesOptions); // On défini la carte
+            }
+
+            function montrerFrance(){
+                maCarte(46.2276, 2.2137, 6);
+            }
+        </script>
+        <button onClick="montrerFrance()">Montrer France</button>
+        <script src="https://maps.googleapis.com/maps/api/js?key=Cle&callback=maCarte"></script> <!-- On importe l'API googlemap a partir d'un lien -->
+    </body>
+</html>
